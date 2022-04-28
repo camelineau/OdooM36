@@ -70,8 +70,8 @@
 				<field name="email"/>
 				<field name="classe_id"/>
 				<field name="entreprise_id"/>
-				<field name="tuteur_entr_id"/>
-				<field name="tuteur_univ_id"/>
+				<field name="tuteur_entr_id_full_name"/>
+				<field name="tuteur_univ_id_full_name"/>
 			</tree>
 		</field>
 	</record>
@@ -93,6 +93,7 @@
 		<field name="arch" type="xml">
 			<tree>
 				<field name="name"/>
+				<field name="adresse"/>
 				<field name="alternants_ids"/>
 				<field name="tuteur_ids"/>
 			</tree>

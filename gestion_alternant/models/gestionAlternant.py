@@ -16,7 +16,7 @@ class alternant(models.Model):
     
     name = fields.Char(string="Nom", required = True)
     first_name = fields.Char(string="Prénom", required = True)
-    full_name = fields.Char(compute="_compute_name")
+    full_name = fields.Char(string = "Alternant", compute="_compute_name")
     email = fields.Char(string="Email")
     classe_id = fields.Many2one('gestion_alternant.classe', string="Classe")
     entreprise_id = fields.Many2one('gestion_alternant.entreprise', string="Entreprise")
@@ -45,7 +45,7 @@ class tuteur_entr(models.Model):
     
     name = fields.Char(string="Nom", required = True)
     first_name = fields.Char(string="Prénom", required = True)
-    full_name = fields.Char(compute="_compute_name")
+    full_name = fields.Char(string = "Tuteur d'entreprise", compute="_compute_name")
     email = fields.Char(string="Email")
     num = fields.Char(string="Numéro de téléphone")
     entr_id = fields.Many2one('gestion_alternant.entreprise', string="Entreprise")
@@ -62,7 +62,7 @@ class tuteur_univ(models.Model):
     
     name = fields.Char(string="Nom", required = True) 
     first_name = fields.Char(string="Prénom", required = True) 
-    full_name = fields.Char(compute="_compute_name")
+    full_name = fields.Char(string = "Tuteur universitaire", compute="_compute_name")
     email = fields.Char(string="Email")
     num = fields.Char(string="Numéro de téléphone")
     alternants_ids = fields.One2many('gestion_alternant.alternant', 'tuteur_univ_id', string='Alternant')
