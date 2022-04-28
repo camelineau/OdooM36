@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>>
+<!-- Top menu item -->
+		
+		<menuitem name="Alternant" id="Alternant_menu_root" sequence="20"/>
+		
+		<!-- menu categories -->
+		
+		<menuitem id="Alternant_menu_gestion" name="Gestion des alternants" parent="Alternant_menu_root" sequence="1"/>
+		
+		<!-- actions -->
+		
+		<menuitem id="Alternant_menu_alternant" name="Alternant" action="alternant_alternant_action_window"
+		
+		parent="Alternant_menu_gestion" sequence="1"/>
+		
+		<menuitem id="Alternant_menu_classe" name="Classe" action="alternant_classe_action_window"
+		
+		parent="Alternant_menu_gestion" sequence="2"/>
+		
+		<menuitem id="Alternant_menu_entreprise" name="Entreprise" action="alternant_entreprise_action_window"
+		
+		parent="Alternant_menu_gestion" sequence="3"/>
+		
+		<menuitem id="Alternant_menu_tuteur_entr" name="Tuteur Entreprise" action="alternant_tuteur_entr_action_window"
+		
+		parent="Alternant_menu_gestion" sequence="4"/>
+		
+		<menuitem id="Alternant_menu_tuteur_univ" name="Tuteur Universitaire" action="alternant_tuteur_univ_action_window"
+		
+		parent="Alternant_menu_gestion" sequence="5"/>
+		
+</odoo>
