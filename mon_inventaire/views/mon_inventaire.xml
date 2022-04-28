@@ -1,0 +1,100 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="mon_inventaire.list">
+      <field name="name">monInventaire list</field>
+      <field name="model">mon_inventaire.mon_inventaire</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="mon_inventaire.action_window">
+      <field name="name">monInventaire window</field>
+      <field name="res_model">mon_inventaire.mon_inventaire</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="mon_inventaire.action_server">
+      <field name="name">monInventaire server</field>
+      <field name="model_id" ref="model_mon_inventaire_mon_inventaire"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="monInventaire" id="mon_inventaire.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="mon_inventaire.menu_1" parent="mon_inventaire.menu_root"/>
+    <menuitem name="Menu 2" id="mon_inventaire.menu_2" parent="mon_inventaire.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="mon_inventaire.menu_1_list" parent="mon_inventaire.menu_1"
+              action="mon_inventaire.action_window"/>
+    <menuitem name="Server to list" id="mon_inventaire" parent="mon_inventaire.menu_2"
+              action="mon_inventaire.action_server"/>
+-->
+	<record id="group_inventaire_user" model="res.groups">
+		<field name="name">Droit inventaire</field>
+		<field name="category_id" ref="base.module_category_hidden"/>
+	</record>
+	
+	<record model="ir.ui.view" id="inventaire_list_materiel">
+		<field name="name">Inventaire liste</field>
+		<field name="model">mon_inventaire.materiel</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="name"/>
+				<field name="type"/>
+				<field name="marque_id"/>
+			</tree>
+		</field>
+	</record>
+	
+	<record model="ir.ui.view" id="inventaire_list_marque">
+		<field name="name">Inventaire liste</field>
+		<field name="model">mon_inventaire.marque</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="name"/>
+				<field name="materiel_ids"/>
+			</tree>
+		</field>
+	</record>
+	
+	<!-- actions opening views on models -->
+	<record model="ir.actions.act_window" id="inventaire_materiel_action_window">
+		<field name="name">Inventaire window</field>
+		<field name="res_model">mon_inventaire.materiel</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	
+	<record model="ir.actions.act_window" id="inventaire_marque_action_window">
+		<field name="name">Inventaire window</field>
+		<field name="res_model">mon_inventaire.marque</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+  </data>
+</odoo>

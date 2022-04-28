@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mon_inventaire_guest_mar,mon_inventaire.marque,model_mon_inventaire_marque,group_inventaire_user,1,0,0,0
+access_mon_inventaire_guest_mat,mon_inventaire.materiel,model_mon_inventaire_materiel,group_inventaire_user,1,0,0,0
+access_mon_inventaire_manager_mar,mon_inventaire.marque,model_mon_inventaire_marque,group_inventaire_user,1,1,1,1
+access_mon_inventaire_manager_mat,mon_inventaire.materiel,model_mon_inventaire_materiel,group_inventaire_user,1,1,1,1
