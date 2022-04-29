@@ -1,59 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 	<!-- explicit list view definition -->
-	
-	    <record model="ir.ui.view" id="mon_inventaire.list">
-	      <field name="name">inventaire list</field>
-	      <field name="model">mon_inventaire.materiel</field>
-	      <field name="arch" type="xml">
-	        <tree>
-	          <field name="name"/>
-	          <field name="type"/>
-	          <field name="marque_id"/>
-	        </tree>
-	      </field>
-	    </record>
-		<record model="ir.ui.view" id="mon_inventaire.list">
-	      <field name="name">inventaire list</field>
-	      <field name="model">mon_inventaire.marque</field>
-	      <field name="arch" type="xml">
-	        <tree>
-	          <field name="name"/>
-	          <field name="materiel_ids"/>
-	        </tree>
-	      </field>
-	    </record>
-	
-	    <!-- actions opening views on models -->
-	
-	    <record model="ir.actions.act_window" id="mon_inventaire.action_window">
-	      <field name="name">inventaire window</field>
-	      <field name="res_model">mon_inventaire.materiel</field>
-	      <field name="view_mode">tree,form</field>
-	    </record>
-	    
-		<record model="ir.actions.act_window" id="mon_inventaire.action_window">
-	      <field name="name">inventaire window</field>
-	      <field name="res_model">mon_inventaire.marque</field>
-	      <field name="view_mode">tree,form</field>
-	    </record>
-	
-	    <!-- server action to the one above -->
-	
-	    <!-- <record model="ir.actions.server" id="mon_inventaire.action_server">
-	      <field name="name">inventaire server</field>
-	      <field name="model_id" ref="model_mon_inventaire_mon_inventaire"/>
-	      <field name="state">code</field>
-	      <field name="code">
-	        action = {
-	          "type": "ir.actions.act_window", 
-	          "view_mode": "tree,form",
-	          "res_model": model._name,
-	        }
-	      </field>
-	    </record>
-		-->
-	
 	    <!-- Top menu item -->
 		
 		<menuitem name="Inventaire" id="Inventaire_menu_root" sequence="20"/>
@@ -61,6 +8,8 @@
 		<!-- menu categories -->
 		
 		<menuitem id="Inventaire_menu_gestion" name="Gestion inventaire" parent="Inventaire_menu_root" sequence="1"/>
+		
+		<menuitem id="Responsable_menu_gestion" name="Gestion responsable" parent="Inventaire_menu_root" sequence="2"/>
 		
 		<!-- actions -->
 		
@@ -71,5 +20,9 @@
 		<menuitem id="Inventaire_menu_marque" name="Inventaire marque" action="inventaire_marque_action_window"
 		
 		parent="Inventaire_menu_gestion" sequence="2"/>
+		
+		<menuitem id="Responsable_menu_responsable" name="Responsable" action="inventaire_responsable_action_window"
+		
+		parent="Responsable_menu_gestion" sequence="1"/>
 	
 </odoo>

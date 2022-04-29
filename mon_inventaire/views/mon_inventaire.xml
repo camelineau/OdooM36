@@ -69,9 +69,37 @@
 				<field name="name"/>
 				<field name="type"/>
 				<field name="marque_id"/>
+				<field name="responsable_id_full_name"/>
 			</tree>
 		</field>
 	</record>
+	
+	<record id="alternant_alternant_kanban" model="ir.ui.view">
+            <field name="name">Liste des matériels</field>
+            <field name="model">mon_inventaire.materiel</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_mobile">
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="row">
+                                    <div class="col-6">
+                                    	<field name="name"/>
+                                    	<br/>
+                                        <br/>
+                                    	<field name="responsable_id_full_name"/>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                    	<field name="marque_id"/>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
 	
 	<record model="ir.ui.view" id="inventaire_list_marque">
 		<field name="name">Inventaire liste</field>
@@ -84,16 +112,35 @@
 		</field>
 	</record>
 	
+	<record model="ir.ui.view" id="inventaire_list_marque">
+		<field name="name">Responsable liste</field>
+		<field name="model">mon_inventaire.responsable</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="full_name"/>
+				<field name="email"/>				
+				<field name="num"/>
+				<field name="materiel_ids_name"/>
+			</tree>
+		</field>
+	</record>
+	
 	<!-- actions opening views on models -->
 	<record model="ir.actions.act_window" id="inventaire_materiel_action_window">
-		<field name="name">Inventaire window</field>
+		<field name="name">Matériel</field>
 		<field name="res_model">mon_inventaire.materiel</field>
-		<field name="view_mode">tree,form</field>
+		<field name="view_mode">tree,form,kanban</field>
 	</record>
 	
 	<record model="ir.actions.act_window" id="inventaire_marque_action_window">
-		<field name="name">Inventaire window</field>
+		<field name="name">Marque</field>
 		<field name="res_model">mon_inventaire.marque</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	
+	<record model="ir.actions.act_window" id="inventaire_responsable_action_window">
+		<field name="name">Responsable</field>
+		<field name="res_model">mon_inventaire.responsable</field>
 		<field name="view_mode">tree,form</field>
 	</record>
   </data>
